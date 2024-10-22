@@ -48,9 +48,32 @@ docker network ls
 
 ![Imagen](img/esquema-ejercicio-redes.PNG)
 
+
+docker network create net-curso01
+docker network create net-curso02
+
+
+Luego:
+
+docker run -d --name contenedor1 --network net-curso01 nginx:alpine
+docker run -d --name contenedor2 --network net-curso01 nginx:alpine
+docker run -d --name contenedor3 --network net-curso01 nginx:alpine
+docker network connect net-curso02 contenedor3
+docker run -d --name contenedor4 --network net-curso02 nginx:alpine
+
+
 # COLOCAR UNA CAPTURA DE LAS REDES EXISTENTES CREADAS
 
+
+![Imagen](img/networks.PNG)
+
 # COLOCAR UNA(S) CAPTURAS(S) DE LOS CONTENEDORES CREADOS EN DONDE SE EVIDENCIE A QUÉ RED ESTÁN VINCULADOS
+
+
+![Imagen](img/network1.PNG)
+
+
+![Imagen](img/network2.PNG)
 
 ### Para eliminar las redes creadas
 ```
